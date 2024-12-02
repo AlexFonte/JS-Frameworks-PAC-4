@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Article} from "../../model/article";
 
 @Component({
@@ -6,25 +6,10 @@ import {Article} from "../../model/article";
   templateUrl: './article-item.component.html',
   styleUrl: './article-item.component.css'
 })
-export class ArticleItemComponent implements OnInit {
+export class ArticleItemComponent{
 
-  public article: Article;
-  public stockClasses;
+  @Input() public article: Article;
   constructor() {}
-
-  ngOnInit() {
-    this.article = {
-      name : "Agua Font Vella 1,5 l.",
-      imageUrl: "https://static.carrefour.es/hd_150x_/img_pim_food/000127_00_1.jpg",
-      price : 0.64,
-      isOnSale: false,
-      quantityInCart: 0
-    }
-
-    this.stockClasses = {
-      "notSale": !this.article.isOnSale
-    }
-  }
 
   addInCart() {
     this.article.quantityInCart++;

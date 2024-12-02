@@ -1,8 +1,11 @@
 .article-item {
+  display: inline-block;
+  text-align: center;
   border: 1px solid black;
   border-radius: 5px;
   padding: 10px;
-  display: inline-block;
+  width: 200px;
+  height: 220px;
 }
 
 .article-item .details {
