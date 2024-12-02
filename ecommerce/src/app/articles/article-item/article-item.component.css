@@ -10,5 +10,10 @@
 }
 
 .article-item.sale {
-  background-color: lightseagreen;
+  background-color: lightgreen;
+}
+
+
+.notSale {
+  color: gray;
 }

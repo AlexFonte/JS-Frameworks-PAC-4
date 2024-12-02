@@ -1,11 +1,11 @@
-<div [class]="article.isOnSale ? 'article-item sale' : 'wine-item '">
+<div [class]="article.isOnSale ? 'article-item sale' : 'article-item '">
   <div class="image">
     <img [src]="article.imageUrl" />
   </div>
   <div class="details">
     <div>{{ article.name }}</div>
-    <div>{{ article.price }} €</div>
-    <div>
+    <div [ngClass]="stockClasses">{{ article.price }} €</div>
+    <div *ngIf="article.isOnSale">
       <button [disabled]="article.quantityInCart == 0" (click)="removeInCart()">-</button>
       <span>{{ article.quantityInCart }}</span>
       <button (click)="addInCart()">+</button>
