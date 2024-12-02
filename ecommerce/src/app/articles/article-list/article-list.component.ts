@@ -3,8 +3,13 @@ import {Article} from "../../model/article";
 
 @Component({
   selector: 'app-article-list',
-  templateUrl: './article-list.component.html',
-  styleUrl: './article-list.component.css'
+  template:`
+    <app-article-item
+      *ngFor="let item of articlesList"
+      [article]="item">
+    </app-article-item>
+  `,
+  styles: []
 })
 export class ArticleListComponent implements OnInit {
   public articlesList: Array<Article>;
