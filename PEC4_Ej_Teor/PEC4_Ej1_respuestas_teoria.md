@@ -1,0 +1,12 @@
+- **ng new**: Crea un nou projecte de treball, i inicializa una nova aplicació Angular.
+- **ng generate**: Crea i/o modifica fitxers amb base als següents subcommandes
+  - **component**: crar un nou component
+  - **directive**: crear una nova directiva
+  - **enum**: crear una nova enumeració
+  - **guard**: crear un nou `guard` per restrigit els accessos  a una ruta en concret 
+  - **interface**: Crear una nova interficie
+  - **pipe**: Crear una nova pipe per poder modificar o formatejar les dades d'una plantilla
+  - **service**: crear un nou servei
+- **ng serve**:Compilar i inicialitza l'applicacio en un servidor web local per poder probar l'app
+- **ng test**: Executa els test del projecte
+- **ng version**: Mostra la versió de Angular CLI instalada
