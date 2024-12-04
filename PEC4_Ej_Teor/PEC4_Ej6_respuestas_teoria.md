@@ -19,3 +19,14 @@ Per defecte Angular aplica l'estratègia `Default`, que és el comportament de d
 Per altra banda, podem tenir aplicacions que continguin una gran quantitat de components, l'estratègia per defecte es pot tenir un impacte negatiu en el rendiment global, per culpa de recórrer tots els components de l'arbre i comprar amb els valors actuals i anteriors. Per això Angular té l'opció de l'estratègia de `OnPush`, que informa a Angular de realitzar la comprovació dels canvis durant la renderització inicial o només quan els valors del component canvi passar per l'anotació `@Input`. Aquesta estratègia permet millor significativament el rendiment global de l'aplicació, és una bona opció per utilitzar amb components i dades que han de ser immutables o solament canviar quan es desitgi. 
 
 ### 5. Explica detalladament el cicle de vida dels components. Fes èmfasi en quan es disparen els hooks *`OnChanges`*, *`OnInit`*, *`AfterViewInit`* i *`OnDestroy`*, ja que són els més utilitzats. ###
+Els components d'Angular tenen el seu propi cicle de vida, des de la creació, la representació, la modificació i la destrucció.
+El punt inicial del cicle de vida comença amb el constructor, on és realment on és crear dit component. Una vegada creat podem començar a utilitzar el seu cicle de vida, també anomenat _lifecycle hooks_. Els cicles de vida tenen el següent ordre:
+
+- **ngOnChanges()**: és el primer en la llista del cicle de vida, és cridat immediatament després del constructor, i sempre que Angular detecti canvis amb els bindings `@Input` del component.  
+- **ngOnInit()**: s'executa una única vegada, a continuació del _hook_ `OnChange`. És on s'inicialitzen habitualment les propietats del component, o on es carreguen les dades del servidor.
+- **ngDoCheck()**: és on podem detectar canvis, que s'han produït i que no poden ser detectats per Angular automàticament. Amb el canvi d'estratègia a `OnPush`.
+- **ngAfterContent​Init()**: s'executa una sola vegada després del `DoCheck`, una vegada que Angular processi i projecti el contingut del component.
+- **ngAfterContent​Checked()**: s'executa després de `ngAfterContentInit()` i després de cada `ngDoCheck`, quan el contingut del component ha sigut verificat.
+- **ngAfterView​Init()**: s'executa quan la vista del component ha sigut inicialitzada totalment, amb tots els seus subcomponents.
+- **ngAfterViewChecked()**: es crida després d'haver verificat les dades del component incloent els seus components fills.
+- **ngOnDestroy()**: s'executa, en últim lloc, abans, que Angular elimini el component i la vista. Serveix per netejar totes les connexions, observables etc.  Per evitar possible fuges de memòria.
